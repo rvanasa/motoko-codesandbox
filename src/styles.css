@@ -1,6 +1,8 @@
 html,
 body {
   background-color: #222;
+  color: white;
+  overflow-y: hidden;
 }
 
 body {
@@ -13,4 +15,32 @@ body {
 
 pre {
   white-space: pre-wrap;
+}
+
+.button-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  /* background: #0008; */
+  /* background: white; */
+  border: solid 2px #222;
+  color: #222;
+  display: flex;
+  cursor: pointer;
+}
+
+.button:hover {
+  /* background: #000a; */
+  color: teal;
+  border-color: teal;
+}
+
+.button:active {
+  /* background: #000c; */
 }
