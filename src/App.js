@@ -7,7 +7,7 @@ import copy from "copy-to-clipboard";
 import CodeEditor from "./CodeEditor";
 
 const EMBED_LINK_BASE =
-  "https://codesandbox.io/embed/motoko-44l2v4?view=preview&hidenavigation=1&hidedevtools=1&initialpath=";
+  "https://codesandbox.io/embed/motoko-44l2v4?view=preview&hidenavigation=1&hidedevtools=1&initialpath=/";
 
 const UNCOMPRESSED_FORMAT = "c";
 
@@ -53,12 +53,14 @@ export default function App() {
     const format = UNCOMPRESSED_FORMAT;
     const link = `${EMBED_LINK_BASE}${format}${btoa(value)}`;
     if (link.length >= 2048) {
-      alert("Your code is too long to fit into a URL!");
-      return;
+      setMessage("> Your code is too long to fit into a URL!");
+    } else {
+      copy(link);
+      setMessage(
+        `> Copied share link to clipboard.\n\nPaste into a Medium article to embed your code!`
+      );
     }
-    copy(link);
-    setMessage(`Copied share link to clipboard:\n\n${link}`);
-    setTimeout(() => setMessage(null), 2000);
+    setTimeout(() => setMessage(null), 3000);
   };
 
   const consoleHeight = 100;
@@ -89,18 +91,21 @@ export default function App() {
           overflowY: "auto"
         }}
       >
-        {!!message && (
+        {message ? (
           <pre style={{ color: "white", overflow: "auto" }}>{message}</pre>
-        )}
-        {!!output?.stdout && (
-          <pre style={{ color: "lightgreen", overflow: "auto" }}>
-            {output.stdout}
-          </pre>
-        )}
-        {!!output?.stderr && (
-          <pre style={{ color: "pink", opacity: 0.8, overflow: "auto" }}>
-            {output.stderr}
-          </pre>
+        ) : (
+          <>
+            {!!output?.stdout && (
+              <pre style={{ color: "lightgreen", overflow: "auto" }}>
+                {output.stdout}
+              </pre>
+            )}
+            {!!output?.stderr && (
+              <pre style={{ color: "pink", opacity: 0.8, overflow: "auto" }}>
+                {output.stderr}
+              </pre>
+            )}
+          </>
         )}
       </div>
     </div>
