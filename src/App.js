@@ -57,7 +57,7 @@ export default function App() {
       return;
     }
     copy(link);
-    setMessage(`Copied share link to clipboard:\n${link}`);
+    setMessage(`Copied share link to clipboard:\n\n${link}`);
     setTimeout(() => setMessage(null), 2000);
   };
 
@@ -71,7 +71,11 @@ export default function App() {
         height={`calc(100vh - ${consoleHeight}px)`}
       />
       <div className="button-menu">
-        <div className="button" onClick={copyEmbedLink}>
+        <div
+          className="button"
+          onClick={copyEmbedLink}
+          title="Copy share link to clipboard"
+        >
           <FaCode />
         </div>
       </div>

@@ -25,6 +25,7 @@ pre {
 }
 
 .button {
+  transition: 0.1s transform ease-out;
   padding: 10px 15px;
   border-radius: 10px;
   /* background: #0008; */
@@ -36,11 +37,13 @@ pre {
 }
 
 .button:hover {
-  /* background: #000a; */
+  background: #fff5;
   color: teal;
   border-color: teal;
+  transform: scale(1.1);
 }
 
 .button:active {
-  /* background: #000c; */
+  background: #fff;
+  transform: scale(1.2);
 }
