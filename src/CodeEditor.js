@@ -11,11 +11,7 @@ export default function CodeEditor({
 }) {
   // const monaco = useMonaco();
   // const [theme] = useThemeState();
-  const theme = "vs-dark"; // 'night-owl'
-
-  const onEditorChange = (newValue) => {
-    onChange?.(newValue);
-  };
+  const theme = "github"; // 'night-owl'
 
   return (
     <MonacoEditor
@@ -33,7 +29,7 @@ export default function CodeEditor({
       // }}
       value={value}
       // path={fileName}
-      onChange={onEditorChange}
+      onChange={(newValue) => onChange?.(newValue)}
       options={{
         tabSize: 2,
         minimap: { enabled: false },
