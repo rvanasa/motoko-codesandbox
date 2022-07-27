@@ -7,5 +7,5 @@
 Paste the following link into a Medium post (or iframe):
 
 ```
-https://codesandbox.io/embed/motoko-44l2v4?fontsize=14&hidenavigation=1&theme=dark&view=preview
+https://codesandbox.io/embed/motoko-44l2v4?view=preview&hidenavigation=1&hidedevtools=1
 ```

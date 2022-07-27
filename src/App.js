@@ -4,13 +4,16 @@ import { useState, useMemo } from "react";
 import CodeEditor from "./CodeEditor";
 import { Motoko } from "motoko";
 
-const defaultCode = `
-actor {
+const defaultCode =
+  `
+actor Main {
   public func hello() : async Text {
     "Hello, world!"
-  }
-}
-`.trim();
+  };
+};
+
+await Main.hello()
+`.trim() + "\n";
 
 export default function App() {
   const [value, setValue] = useState(defaultCode);
@@ -24,28 +27,38 @@ export default function App() {
     }
   }, [value]);
 
-  console.log(output);
+  const consoleHeight = 100;
 
   return (
     <div className="App">
+      <CodeEditor
+        value={value}
+        onChange={setValue}
+        height={`calc(100vh - ${consoleHeight}px)`}
+      />
       {!!output && (
         <div
           style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            background: "#0005"
+            fontSize: 14,
+            padding: "5px 20px",
+            textAlign: "left",
+            maxWidth: "100vw",
+            maxHeight: consoleHeight,
+            overflowY: "auto"
           }}
         >
           {!!output.stdout && (
-            <pre style={{ color: "lightgreen" }}>{output.stdout}</pre>
+            <pre style={{ color: "lightgreen", overflow: "auto" }}>
+              {output.stdout}
+            </pre>
           )}
           {!!output.stderr && (
-            <pre style={{ color: "pink" }}>{output.stderr}</pre>
+            <pre style={{ color: "pink", opacity: 0.8, overflow: "auto" }}>
+              {output.stderr}
+            </pre>
           )}
         </div>
       )}
-      <CodeEditor value={value} onChange={setValue} height="100vh" />
     </div>
   );
 }

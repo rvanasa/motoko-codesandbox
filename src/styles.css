@@ -1,8 +1,16 @@
+html,
+body {
+  background-color: #222;
+}
+
 body {
   margin: 0;
 }
 
 .App {
   font-family: sans-serif;
-  text-align: center;
+}
+
+pre {
+  white-space: pre-wrap;
 }
