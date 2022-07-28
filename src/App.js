@@ -6,13 +6,25 @@ import { Motoko } from "motoko";
 import copy from "copy-to-clipboard";
 import CodeEditor from "./CodeEditor";
 
+const initialCode = `
+// A simple Motoko smart contract.
+
+actor Main {
+  public func hello() : async Text {
+    "Hello, world!"
+  };
+};
+
+await Main.hello()
+`;
+
 const EMBED_LINK_BASE =
-  "https://codesandbox.io/embed/motoko-44l2v4?view=preview&hidenavigation=1&hidedevtools=1&initialpath=/";
+  "https://codesandbox.io/s/motoko-44l2v4?view=preview&hidenavigation=1&hidedevtools=1&initialpath=";
 
 const UNCOMPRESSED_FORMAT = "c";
 
-const shareData = window.location.pathname.substring(1);
 let defaultCode;
+const shareData = window.location.pathname.substring(1);
 if (shareData) {
   if (shareData.startsWith(UNCOMPRESSED_FORMAT)) {
     try {
@@ -22,18 +34,7 @@ if (shareData) {
     }
   }
 } else {
-  defaultCode =
-    `
-  // A simple Motoko smart contract.
-
-  actor Main {
-    public func hello() : async Text {
-      "Hello, world!"
-    };
-  };
-
-  await Main.hello()
-  `.trim() + "\n";
+  defaultCode = initialCode.trim() + "\n";
 }
 
 export default function App() {

@@ -38,8 +38,8 @@ pre {
 
 .button:hover {
   background: #fff5;
-  color: teal;
-  border-color: teal;
+  color: darkblue;
+  border-color: darkblue;
   transform: scale(1.1);
 }
 
