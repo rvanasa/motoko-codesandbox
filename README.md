@@ -2,7 +2,7 @@
 
 > ### An embeddable Motoko interpreter for use in Medium articles.
 
-### Example Usage:
+## Usage:
 
 Paste the following link into a Medium post (or `iframe`):
 
