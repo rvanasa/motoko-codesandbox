@@ -3,6 +3,7 @@ import "./styles.css";
 import { useState, useMemo } from "react";
 import { FaCode } from "react-icons/fa";
 import { Motoko } from "motoko";
+import ReactTooltip from "react-tooltip";
 import copy from "copy-to-clipboard";
 import CodeEditor from "./CodeEditor";
 
@@ -69,13 +70,18 @@ export default function App() {
 
   return (
     <div className="App">
+      <ReactTooltip />
       <CodeEditor
         value={value}
         onChange={setValue}
         height={`calc(100vh - ${consoleHeight}px)`}
       />
       <div className="button-menu">
-        <div className="button" onClick={copyEmbedLink} title="Copy embed link">
+        <div
+          className="button"
+          onClick={copyEmbedLink}
+          data-tip="Copy embed link"
+        >
           <FaCode />
         </div>
       </div>
