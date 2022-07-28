@@ -58,7 +58,7 @@ export default function App() {
     } else {
       copy(link);
       setMessage(
-        `> Copied share link to clipboard.\n\nPaste into a Medium article to embed your code!`
+        `> Copied share link to clipboard.\n\nIf you are using Medium, create a fork and edit 'App.js'.`
       );
     }
     setTimeout(() => setMessage(null), 3000);
