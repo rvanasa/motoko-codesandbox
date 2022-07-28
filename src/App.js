@@ -58,7 +58,7 @@ export default function App() {
     } else {
       copy(link);
       setMessage(
-        `> Copied share link to clipboard.\n\nIf you are using Medium, create a fork and edit 'App.js'.`
+        `> Copied embed link to clipboard.\n\nIf you are using Medium, create a fork and edit 'App.js'.`
       );
     }
     setTimeout(() => setMessage(null), 3000);
@@ -74,11 +74,7 @@ export default function App() {
         height={`calc(100vh - ${consoleHeight}px)`}
       />
       <div className="button-menu">
-        <div
-          className="button"
-          onClick={copyEmbedLink}
-          title="Copy share link to clipboard"
-        >
+        <div className="button" onClick={copyEmbedLink} title="Copy embed link">
           <FaCode />
         </div>
       </div>
