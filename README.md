@@ -1,6 +1,6 @@
 # Motoko CodeSandbox Environment
 
-| ### An embeddable Motoko interpreter for use in Medium articles.
+> ### An embeddable Motoko interpreter for use in Medium articles.
 
 ### Example Usage:
 
