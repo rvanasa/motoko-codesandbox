@@ -6,6 +6,7 @@ import { Motoko } from "motoko";
 import copy from "copy-to-clipboard";
 import CodeEditor from "./CodeEditor";
 
+// Edit here to embed a different code snippet on Medium!
 const initialCode = `
 // A simple Motoko smart contract.
 
